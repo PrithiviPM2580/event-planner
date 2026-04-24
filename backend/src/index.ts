@@ -1,11 +1,15 @@
 import "dotenv/config";
 import express, { type Express } from "express";
-import { connectToDatabase } from "config/db.config";
 import cors from "cors";
 import morgan from "morgan";
 import helmet from "helmet";
+import { connectToDatabase } from "@/config/db.config";
+import { toNodeHandler } from "better-auth/node";
+import { auth } from "@/lib/auth";
 
 const app: Express = express();
+
+app.all("/api/auth/*", toNodeHandler(auth));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
