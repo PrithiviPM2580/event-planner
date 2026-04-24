@@ -24,7 +24,7 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src/*"]
     },
 
     // Some stricter flags (disabled by default)
