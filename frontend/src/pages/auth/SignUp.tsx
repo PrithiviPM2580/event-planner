@@ -1,9 +1,6 @@
-"use client"
-
-import * as React from "react"
+import { useState } from "react"
 import { useForm } from "@tanstack/react-form"
-import { toast } from "sonner"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -22,8 +19,11 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { signUpSchema } from "@/validators/auth.validator"
+import { signUp } from "@/services/auth.service"
 
 export default function SignUp() {
+  const navigate = useNavigate()
+  const [isLoading, setIsLoading] = useState(false)
   const form = useForm({
     defaultValues: {
       name: "",
@@ -34,20 +34,7 @@ export default function SignUp() {
       onSubmit: signUpSchema,
     },
     onSubmit: async ({ value }) => {
-      toast("You submitted the following values:", {
-        description: (
-          <pre className="bg-code text-code-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4">
-            <code>{JSON.stringify(value, null, 2)}</code>
-          </pre>
-        ),
-        position: "bottom-right",
-        classNames: {
-          content: "flex flex-col gap-2",
-        },
-        style: {
-          "--border-radius": "calc(var(--radius)  + 4px)",
-        } as React.CSSProperties,
-      })
+      await signUp(value, setIsLoading, () => navigate("/dashboard"))
     },
   })
 
@@ -148,8 +135,12 @@ export default function SignUp() {
                 }}
               />
             </FieldGroup>
-            <Button type="submit" className="mt-6 w-full py-5">
-              Submit
+            <Button
+              type="submit"
+              className="mt-6 w-full py-5"
+              disabled={isLoading}
+            >
+              {isLoading ? "Signing Up..." : "Sign Up"}
             </Button>
           </form>
         </CardContent>
