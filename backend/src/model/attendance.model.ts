@@ -20,6 +20,7 @@ const attendanceSchema = new Schema<IAttendance>(
       type: String,
       enum: Object.values(AttendanceStatus),
       required: true,
+      default: AttendanceStatus.GOING,
     },
     userId: {
       type: Schema.Types.ObjectId,
@@ -37,10 +38,8 @@ const attendanceSchema = new Schema<IAttendance>(
   },
 );
 
-// Equivalent of @@unique([userId, eventId])
 attendanceSchema.index({ userId: 1, eventId: 1 }, { unique: true });
 
-export const Attendance = mongoose.model<IAttendance>(
-  "Attendance",
-  attendanceSchema,
-);
+export const Attendance =
+  mongoose.models.Attendance ||
+  mongoose.model<IAttendance>("Attendance", attendanceSchema);
