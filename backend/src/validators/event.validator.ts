@@ -20,5 +20,8 @@ export const eventIdParamSchema = z.object({
   }),
 });
 
+export const updateEventSchema = createEventSchema.partial();
+
 export type CreateEventInput = z.infer<typeof createEventSchema>;
 export type EventIdParamInput = z.infer<typeof eventIdParamSchema>;
+export type UpdateEventInput = z.infer<typeof updateEventSchema>;
