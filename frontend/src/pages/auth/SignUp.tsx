@@ -19,10 +19,11 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { signUpSchema } from "@/validators/auth.validator"
-import { signUp } from "@/services/auth.service"
+import { useAuth } from "@/context/auth-context"
 
 export default function SignUp() {
   const navigate = useNavigate()
+  const { signup } = useAuth()
   const [isLoading, setIsLoading] = useState(false)
   const form = useForm({
     defaultValues: {
@@ -34,7 +35,7 @@ export default function SignUp() {
       onSubmit: signUpSchema,
     },
     onSubmit: async ({ value }) => {
-      await signUp(value, setIsLoading, () => navigate("/dashboard"))
+      await signup(value, setIsLoading, navigate)
     },
   })
 
