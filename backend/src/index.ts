@@ -6,6 +6,7 @@ import helmet from "helmet";
 import { connectToDatabase } from "@/config/db.config";
 import { toNodeHandler, fromNodeHeaders } from "better-auth/node";
 import { auth } from "@/lib/auth";
+import router from "./routes/index.route";
 
 const app: Express = express();
 
@@ -35,9 +36,7 @@ app.get("/api/me", async (req, res) => {
   return res.json(session);
 });
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+app.use(router);
 
 const PORT = process.env.PORT || 3000;
 async function startServer() {
