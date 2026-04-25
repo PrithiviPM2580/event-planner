@@ -75,6 +75,7 @@ export default function SignUp() {
                         placeholder="John Doe"
                         autoComplete="off"
                         className="py-5"
+                        type="text"
                       />
                       {isInvalid && (
                         <FieldError errors={field.state.meta.errors} />
@@ -101,6 +102,7 @@ export default function SignUp() {
                         placeholder="john@example.com"
                         autoComplete="off"
                         className="py-5"
+                        type="email"
                       />
                       {isInvalid && (
                         <FieldError errors={field.state.meta.errors} />
@@ -127,6 +129,7 @@ export default function SignUp() {
                         placeholder="••••••••"
                         autoComplete="off"
                         className="py-5"
+                        type="password"
                       />
                       {isInvalid && (
                         <FieldError errors={field.state.meta.errors} />
