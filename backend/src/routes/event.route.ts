@@ -1,4 +1,5 @@
 import { createEventController } from "@/controllers/event/create-event.controller";
+import { getAllEventsController } from "@/controllers/event/gell-all-events.controller";
 import asyncHandler from "@/middleware/async-handler.middleware";
 import { requireAuth } from "@/middleware/require-auth.middleware";
 import { validateRequest } from "@/middleware/validate-request.middleware";
@@ -13,5 +14,7 @@ eventRouter.post(
   requireAuth,
   asyncHandler(createEventController),
 );
+
+eventRouter.get("/", requireAuth, asyncHandler(getAllEventsController));
 
 export default eventRouter;
