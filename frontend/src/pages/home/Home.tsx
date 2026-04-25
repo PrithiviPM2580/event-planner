@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { EVENT_ITEMS, TIME_ITEMS } from "@/constant"
+import { Link } from "react-router-dom"
 
 export default function Home() {
   return (
@@ -15,16 +16,24 @@ export default function Home() {
           excellence.
         </p>
         <div className="flex gap-4">
-          <Button className="px-8 py-5 text-base">Get Started</Button>
+          <Button className="px-8 py-5 text-base" asChild>
+            <Link to="/sign-in">Get Started</Link>
+          </Button>
           <Button
             variant="outline"
             className="border-primary px-8 py-5 text-base"
           >
-            Browse Events
+            <Link to="/events">Browse Events</Link>
           </Button>
         </div>
       </div>
-      <div className="h-[50vh] w-full bg-transparent"></div>
+      <div className="w-full overflow-hidden rounded-2xl px-4 py-12 sm:px-6 md:px-8 lg:grid-cols-3 lg:px-10 xl:px-12">
+        <img
+          className="h-[40vh] w-full overflow-hidden rounded-2xl object-cover md:h-[60vh]"
+          src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920&auto=format&fit=crop&q=1920&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGV2ZW50fGVufDB8fDB8fHww"
+          alt="Image"
+        />
+      </div>
       <div className="grid grid-cols-1 gap-8 px-4 sm:grid-cols-2 sm:px-6 md:px-8 lg:grid-cols-3 lg:px-10 xl:px-12">
         {EVENT_ITEMS.map((item) => (
           <Card className="gap-6" key={item.id}>
@@ -43,7 +52,7 @@ export default function Home() {
         ))}
       </div>
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
-        <div className="mt-12 grid w-full grid-cols-2 place-items-center gap-4 rounded-2xl bg-primary/5 p-8 px-4 sm:px-6 md:grid-cols-4 md:gap-0">
+        <div className="mt-12 grid w-full grid-cols-2 place-items-center gap-4 rounded-2xl bg-primary/5 p-8 px-4 py-20 sm:px-6 md:grid-cols-4 md:gap-0">
           {TIME_ITEMS.map((item) => (
             <div
               className="flex flex-col items-center justify-center"
