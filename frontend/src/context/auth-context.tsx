@@ -3,7 +3,6 @@ import type { User } from "better-auth"
 import type { SignInForm, SignUpForm } from "@/validators/auth.validator"
 import { authClient } from "@/lib/auth-client"
 import { createAuthClient } from "better-auth/react"
-import { Spinner } from "@/components/ui/spinner"
 const { useSession } = createAuthClient()
 
 export interface AuthContextType {
@@ -24,7 +23,7 @@ export interface AuthContextType {
 export const AuthContext = createContext<AuthContextType | null>(null)
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const { data: session, isPending } = useSession()
+  const { data: session } = useSession()
 
   const user = session?.user ?? null
 
@@ -83,14 +82,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         onSuccess: () => navigate("/sign-in"),
       },
     })
-  }
-
-  if (isPending) {
-    return (
-      <div className="flex h-dvh w-full items-center justify-center">
-        <Spinner className="size-10" />
-      </div>
-    )
   }
 
   return (
