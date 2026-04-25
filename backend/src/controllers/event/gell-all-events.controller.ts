@@ -14,7 +14,11 @@ export const getAllEventsController = async (
   const sort = req.query.sort === "oldest" ? 1 : -1;
   const filter: any = {};
 
-  filter.visibility = "PUBLIC";
+  if (req.query.visibility) {
+    filter.visibility = req.query.visibility;
+  } else {
+    filter.visibility = "PUBLIC";
+  }
 
   if (req.query?.mine === "true") {
     filter.organizerId = req.user?.id;
