@@ -1,24 +1,24 @@
 import mongoose, { Schema, Document, Types } from "mongoose";
 
-export enum RSVPStatus {
+export enum AttendanceStatus {
   GOING = "GOING",
   MAYBE = "MAYBE",
   NOT_GOING = "NOT_GOING",
 }
 
-export interface IRSVP extends Document {
-  status: RSVPStatus;
+export interface IAttendance extends Document {
+  status: AttendanceStatus;
   userId: Types.ObjectId;
   eventId: Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;
 }
 
-const rsvpSchema = new Schema<IRSVP>(
+const attendanceSchema = new Schema<IAttendance>(
   {
     status: {
       type: String,
-      enum: Object.values(RSVPStatus),
+      enum: Object.values(AttendanceStatus),
       required: true,
     },
     userId: {
@@ -38,6 +38,9 @@ const rsvpSchema = new Schema<IRSVP>(
 );
 
 // Equivalent of @@unique([userId, eventId])
-rsvpSchema.index({ userId: 1, eventId: 1 }, { unique: true });
+attendanceSchema.index({ userId: 1, eventId: 1 }, { unique: true });
 
-export const RSVP = mongoose.model<IRSVP>("RSVP", rsvpSchema);
+export const Attendance = mongoose.model<IAttendance>(
+  "Attendance",
+  attendanceSchema,
+);
