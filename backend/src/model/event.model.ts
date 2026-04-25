@@ -1,13 +1,18 @@
 import mongoose, { Schema, Document, Types } from "mongoose";
 
+export enum EventVisibility {
+  PUBLIC = "PUBLIC",
+  PRIVATE = "PRIVATE",
+}
+
 export interface IEvent extends Document {
   title: string;
-  description: string;
-  date: Date;
-  location: string;
-  maxAttendees?: number;
-  isPublic: boolean;
-  userId: Types.ObjectId;
+  description?: string;
+  location?: string;
+  startDate: Date;
+  endDate: Date;
+  visibility: EventVisibility;
+  organizerId: Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -17,28 +22,28 @@ const eventSchema = new Schema<IEvent>(
     title: {
       type: String,
       required: true,
+      trim: true,
     },
     description: {
       type: String,
-      required: true,
-    },
-    date: {
-      type: Date,
-      required: true,
     },
     location: {
       type: String,
+    },
+    startDate: {
+      type: Date,
       required: true,
     },
-    maxAttendees: {
-      type: Number,
-      default: null,
+    endDate: {
+      type: Date,
+      required: true,
     },
-    isPublic: {
-      type: Boolean,
-      default: true,
+    visibility: {
+      type: String,
+      enum: Object.values(EventVisibility),
+      default: EventVisibility.PRIVATE,
     },
-    userId: {
+    organizerId: {
       type: Schema.Types.ObjectId,
       ref: "User",
       required: true,
@@ -49,6 +54,5 @@ const eventSchema = new Schema<IEvent>(
   },
 );
 
-const Event = mongoose.model<IEvent>("Event", eventSchema);
-
-export default Event;
+export const Event =
+  mongoose.models.Event || mongoose.model<IEvent>("Event", eventSchema);
