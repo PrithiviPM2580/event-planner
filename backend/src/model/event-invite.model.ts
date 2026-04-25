@@ -49,6 +49,7 @@ const eventInviteSchema = new Schema<IEventInvite>(
 
 eventInviteSchema.index({ eventId: 1, inviteeId: 1 }, { unique: true });
 
-export const EventInvite =
-  mongoose.models.EventInvite ||
-  mongoose.model<IEventInvite>("EventInvite", eventInviteSchema);
+export const EventInvite = mongoose.model<IEventInvite>(
+  "EventInvite",
+  eventInviteSchema,
+);
