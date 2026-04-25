@@ -1,9 +1,8 @@
 import { Event } from "@/model/event.model";
-import type { Response, NextFunction } from "express";
-import type { TypedRequest } from "@/types";
+import type { Response, NextFunction, Request } from "express";
 
 export const getAllEventsController = async (
-  req: TypedRequest,
+  req: Request,
   res: Response,
   next: NextFunction,
 ) => {
