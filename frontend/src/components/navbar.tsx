@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { Button } from "./ui/button"
 import { ModeToggle } from "./mode-toggle"
 
@@ -30,7 +30,9 @@ export default function Navbar() {
       </nav>
       <div className="flex gap-4">
         <ModeToggle />
-        <Button className="rounded-2xl px-4">Get Started</Button>
+        <Button className="rounded-2xl px-4">
+          <Link to="/sign-in">Get Started</Link>
+        </Button>
       </div>
     </header>
   )
