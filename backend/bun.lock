@@ -13,6 +13,7 @@
         "mongodb": "^7.2.0",
         "mongoose": "^9.5.0",
         "morgan": "^1.10.1",
+        "zod-express-validator": "^0.0.6",
       },
       "devDependencies": {
         "@types/bun": "latest",
@@ -282,6 +283,8 @@
     "wrappy": ["wrappy@1.0.2", "", {}, "sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ=="],
 
     "zod": ["zod@4.3.6", "", {}, "sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg=="],
+
+    "zod-express-validator": ["zod-express-validator@0.0.6", "", { "peerDependencies": { "express": "^5.1.0", "zod": "^4.0.10" } }, "sha512-oOSits6dkBJ+cIWjgFBPYe/XvQCJk2FQ0yWMKSfg9O8V7WRhCfQSkxXrANZ6gwpGCfMsrGM8PPs0/Xlux51BWw=="],
 
     "mongoose/mongodb": ["mongodb@7.1.1", "", { "dependencies": { "@mongodb-js/saslprep": "^1.3.0", "bson": "^7.1.1", "mongodb-connection-string-url": "^7.0.0" }, "peerDependencies": { "@aws-sdk/credential-providers": "^3.806.0", "@mongodb-js/zstd": "^7.0.0", "gcp-metadata": "^7.0.1", "kerberos": "^7.0.0", "mongodb-client-encryption": ">=7.0.0 <7.1.0", "snappy": "^7.3.2", "socks": "^2.8.6" }, "optionalPeers": ["@aws-sdk/credential-providers", "@mongodb-js/zstd", "gcp-metadata", "kerberos", "mongodb-client-encryption", "snappy", "socks"] }, "sha512-067DXiMjcpYQl6bGjWQoTUEE9UoRViTtKFcoqX7z08I+iDZv/emH1g8XEFiO3qiDfXAheT5ozl1VffDTKhIW/w=="],
 
