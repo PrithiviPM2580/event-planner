@@ -1,7 +1,10 @@
-import { useState, createContext, useContext } from "react"
+import { createContext, useContext } from "react"
 import type { User } from "better-auth"
 import type { SignInForm, SignUpForm } from "@/validators/auth.validator"
 import { authClient } from "@/lib/auth-client"
+import { createAuthClient } from "better-auth/react"
+import { Spinner } from "@/components/ui/spinner"
+const { useSession } = createAuthClient()
 
 export interface AuthContextType {
   user: User | null
@@ -21,7 +24,9 @@ export interface AuthContextType {
 export const AuthContext = createContext<AuthContextType | null>(null)
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null)
+  const { data: session, isPending } = useSession()
+
+  const user = session?.user ?? null
 
   const signup: AuthContextType["signup"] = async (
     formData,
@@ -36,9 +41,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       },
       {
         onRequest: () => setIsLoading(true),
-        onSuccess: (ctx) => {
+        onSuccess: async () => {
           setIsLoading(false)
-          setUser(ctx.data?.user)
           navigate("/dashboard")
         },
         onError: (ctx) => {
@@ -61,9 +65,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       },
       {
         onRequest: () => setIsLoading(true),
-        onSuccess: (ctx) => {
+        onSuccess: async () => {
           setIsLoading(false)
-          setUser(ctx.data?.user)
           navigate("/dashboard")
         },
         onError: (ctx) => {
@@ -77,10 +80,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const logout: AuthContextType["logout"] = async (navigate) => {
     await authClient.signOut({
       fetchOptions: {
-        onSuccess: () => navigate("/login"),
+        onSuccess: () => navigate("/sign-in"),
       },
     })
-    setUser(null)
+  }
+
+  if (isPending) {
+    return (
+      <div className="flex h-dvh w-full items-center justify-center">
+        <Spinner className="size-10" />
+      </div>
+    )
   }
 
   return (
