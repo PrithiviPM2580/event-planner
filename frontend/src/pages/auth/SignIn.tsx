@@ -1,6 +1,5 @@
 import { useForm } from "@tanstack/react-form"
 import { Link, useNavigate } from "react-router-dom"
-
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -74,6 +73,7 @@ export default function SignIn() {
                         placeholder="john@example.com"
                         autoComplete="off"
                         className="py-5"
+                        type="email"
                       />
                       {isInvalid && (
                         <FieldError errors={field.state.meta.errors} />
@@ -100,6 +100,7 @@ export default function SignIn() {
                         placeholder="••••••••"
                         autoComplete="off"
                         className="py-5"
+                        type="password"
                       />
                       {isInvalid && (
                         <FieldError errors={field.state.meta.errors} />
