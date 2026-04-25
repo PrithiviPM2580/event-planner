@@ -3,6 +3,7 @@ import SignUp from "@/pages/auth/SignUp"
 import Dashboard from "@/pages/dashboard/Dashboard"
 import Home from "@/pages/home/Home"
 import { Route, Routes } from "react-router-dom"
+import ProtectedRoute from "./ProtectedRoute"
 
 export default function AppRoute() {
   return (
@@ -10,7 +11,9 @@ export default function AppRoute() {
       <Route path="/" element={<Home />} />
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/sign-in" element={<SignIn />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Route>
     </Routes>
   )
 }
