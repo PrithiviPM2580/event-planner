@@ -14,4 +14,11 @@ export const createEventSchema = z.object({
   visibility: z.enum(["PUBLIC", "PRIVATE"]).default("PRIVATE"),
 });
 
+export const eventIdParamSchema = z.object({
+  eventId: z.string().refine((id) => Types.ObjectId.isValid(id), {
+    message: "Invalid event ID",
+  }),
+});
+
 export type CreateEventInput = z.infer<typeof createEventSchema>;
+export type EventIdParamInput = z.infer<typeof eventIdParamSchema>;
