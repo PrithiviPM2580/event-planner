@@ -20,15 +20,10 @@ async function seedEvents() {
     console.log("🧹 Old events removed");
 
     // Replace USER_ID with real ObjectId
-    const userId = new mongoose.Types.ObjectId();
-
-    const formattedData = eventSeedData.map((event) => ({
-      ...event,
-      organizerId: userId,
-    }));
+    // const userId = new mongoose.Types.ObjectId();
 
     // Insert data
-    await Event.insertMany(formattedData);
+    await Event.insertMany(eventSeedData);
 
     console.log("🌱 Events seeded successfully");
 
