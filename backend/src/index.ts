@@ -7,6 +7,7 @@ import { connectToDatabase } from "@/config/db.config";
 import { toNodeHandler, fromNodeHeaders } from "better-auth/node";
 import { auth } from "@/lib/auth";
 import router from "./routes/index.route";
+import { globalErrorHandler } from "./middleware/global-error-handler.middleware";
 
 const app: Express = express();
 
@@ -37,6 +38,7 @@ app.get("/api/me", async (req, res) => {
 });
 
 app.use(router);
+app.use(globalErrorHandler);
 
 const PORT = process.env.PORT || 3000;
 async function startServer() {
