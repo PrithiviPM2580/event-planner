@@ -13,4 +13,11 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
   },
+  trustedOrigins: [
+    "http://localhost:3000", // your frontend origin
+    "http://localhost:5173", // if using Vite dev server
+  ],
+  advanced: {
+    disableCSRFCheck: process.env.NODE_ENV === "development" ? true : false, // ONLY for development/testing!
+  },
 });
