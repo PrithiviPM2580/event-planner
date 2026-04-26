@@ -5,6 +5,7 @@ import { validateRequest } from "@/middleware/validate-request.middleware";
 import { createEventInviteSchema } from "@/validators/event-invite.validator";
 import { createEventInviteController } from "@/controllers/event-invite/send-event-invite.controller";
 import { getReceiveInviteController } from "@/controllers/event-invite/get-receive-invite.controller";
+import { getSentInviteController } from "@/controllers/event-invite/get-sent-invite.controller";
 
 const eventInviteRouter = Router();
 
@@ -19,6 +20,12 @@ eventInviteRouter.get(
   "/received",
   requireAuth,
   asyncHandler(getReceiveInviteController),
+);
+
+eventInviteRouter.get(
+  "/sent",
+  requireAuth,
+  asyncHandler(getSentInviteController),
 );
 
 export default eventInviteRouter;
