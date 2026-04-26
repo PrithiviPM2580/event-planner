@@ -9,5 +9,5 @@ router.get("/", (req, res) => {
 });
 
 router.use("/api/events", eventRouter);
-router.use("/api/event-invites", eventInviteRouter);
+router.use("/api/invites", eventInviteRouter);
 export default router;
