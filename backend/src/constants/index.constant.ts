@@ -5,6 +5,7 @@ export const eventSeedData = [
     location: "Kathmandu, Nepal",
     startDate: new Date("2026-05-10T10:00:00Z"),
     endDate: new Date("2026-05-10T15:00:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PUBLIC",
   },
   {
@@ -13,6 +14,7 @@ export const eventSeedData = [
     location: "Pokhara, Nepal",
     startDate: new Date("2026-05-12T17:00:00Z"),
     endDate: new Date("2026-05-12T20:00:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PRIVATE",
   },
   {
@@ -21,6 +23,7 @@ export const eventSeedData = [
     location: "Online",
     startDate: new Date("2026-06-01T09:00:00Z"),
     endDate: new Date("2026-06-01T18:00:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PUBLIC",
   },
   {
@@ -29,6 +32,7 @@ export const eventSeedData = [
     location: "Zoom",
     startDate: new Date("2026-04-28T10:00:00Z"),
     endDate: new Date("2026-04-28T11:00:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PRIVATE",
   },
   {
@@ -37,6 +41,7 @@ export const eventSeedData = [
     location: "Lalitpur, Nepal",
     startDate: new Date("2026-05-18T09:30:00Z"),
     endDate: new Date("2026-05-18T16:00:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PUBLIC",
   },
   {
@@ -45,6 +50,7 @@ export const eventSeedData = [
     location: "Kathmandu, Nepal",
     startDate: new Date("2026-05-22T14:00:00Z"),
     endDate: new Date("2026-05-22T17:00:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PRIVATE",
   },
   {
@@ -53,6 +59,7 @@ export const eventSeedData = [
     location: "Bhaktapur, Nepal",
     startDate: new Date("2026-05-25T18:00:00Z"),
     endDate: new Date("2026-05-25T21:00:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PUBLIC",
   },
   {
@@ -61,6 +68,7 @@ export const eventSeedData = [
     location: "Kathmandu, Nepal",
     startDate: new Date("2026-06-10T08:00:00Z"),
     endDate: new Date("2026-06-12T20:00:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PUBLIC",
   },
   {
@@ -69,6 +77,7 @@ export const eventSeedData = [
     location: "Kathmandu, Nepal",
     startDate: new Date("2026-05-05T11:00:00Z"),
     endDate: new Date("2026-05-05T12:30:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PRIVATE",
   },
   {
@@ -77,6 +86,7 @@ export const eventSeedData = [
     location: "Online",
     startDate: new Date("2026-05-30T13:00:00Z"),
     endDate: new Date("2026-05-30T17:00:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PUBLIC",
   },
 
@@ -86,6 +96,7 @@ export const eventSeedData = [
     location: "Kathmandu",
     startDate: new Date("2026-06-05T09:00:00Z"),
     endDate: new Date("2026-06-05T16:00:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PRIVATE",
   },
   {
@@ -94,6 +105,7 @@ export const eventSeedData = [
     location: "Lalitpur",
     startDate: new Date("2026-06-07T10:00:00Z"),
     endDate: new Date("2026-06-07T15:00:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PUBLIC",
   },
   {
@@ -102,6 +114,7 @@ export const eventSeedData = [
     location: "Online",
     startDate: new Date("2026-06-09T12:00:00Z"),
     endDate: new Date("2026-06-09T18:00:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PRIVATE",
   },
   {
@@ -110,6 +123,7 @@ export const eventSeedData = [
     location: "Pokhara",
     startDate: new Date("2026-06-11T11:00:00Z"),
     endDate: new Date("2026-06-11T14:00:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PUBLIC",
   },
   {
@@ -118,6 +132,7 @@ export const eventSeedData = [
     location: "Kathmandu",
     startDate: new Date("2026-06-14T10:00:00Z"),
     endDate: new Date("2026-06-14T13:00:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PRIVATE",
   },
   {
@@ -126,6 +141,7 @@ export const eventSeedData = [
     location: "Online",
     startDate: new Date("2026-06-16T18:00:00Z"),
     endDate: new Date("2026-06-17T06:00:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PUBLIC",
   },
   {
@@ -134,6 +150,7 @@ export const eventSeedData = [
     location: "Kathmandu",
     startDate: new Date("2026-06-18T17:00:00Z"),
     endDate: new Date("2026-06-18T20:00:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PUBLIC",
   },
   {
@@ -142,6 +159,7 @@ export const eventSeedData = [
     location: "Bhaktapur",
     startDate: new Date("2026-06-20T09:00:00Z"),
     endDate: new Date("2026-06-20T15:00:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PRIVATE",
   },
   {
@@ -150,6 +168,7 @@ export const eventSeedData = [
     location: "Online",
     startDate: new Date("2026-06-22T13:00:00Z"),
     endDate: new Date("2026-06-22T16:00:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PUBLIC",
   },
   {
@@ -158,6 +177,7 @@ export const eventSeedData = [
     location: "Kathmandu",
     startDate: new Date("2026-06-25T14:00:00Z"),
     endDate: new Date("2026-06-25T17:00:00Z"),
+    organizerId: "69ecb963c46c2fbd5582ecac",
     visibility: "PRIVATE",
   },
 ];
